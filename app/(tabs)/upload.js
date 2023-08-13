@@ -100,9 +100,10 @@ export default function Upload() {
       const userDocRef = doc(db, "users", uid);
       await setDoc(userDocRef, {
         shorts: arrayUnion(docRef.id), // Store only the document ID
-      });
+      }, { merge: true });
 
       console.log("Document saved correctly in 'shorts' collection with ID:", docRef.id);
+      setVideo("")
     } catch (e) {
       console.error("An error occurred while saving record:", e);
     }
@@ -112,8 +113,8 @@ export default function Upload() {
     <View className="flex-1 justify-center items-center">
       {errorMessage ? <Text style={{ color: "red" }}>{errorMessage}</Text> : null}
 
-      <ProgressBar progress={progress} />
-      <Uploading image={''} video={video} progress={progress} />
+      {/* <ProgressBar progress={progress} /> */}
+      {video &&( <Uploading  video={video} progress={progress} />) }
       <TextInput
         placeholder="Title"
         value={title}

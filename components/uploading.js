@@ -1,49 +1,85 @@
 import React from "react";
-import { Image, Text, View, TouchableOpacity, Platform } from "react-native";
+import { Text, View, TouchableOpacity, Platform, StyleSheet, Image } from "react-native";
 import { Video } from "expo-av";
-import { LinearGradient } from "expo-linear-gradient";
-
 import { BlurView } from 'expo-blur';
 import ProgressBar from "./progressBar";
 
-export function Uploading({ image, video, progress }) {
+export function Uploading({ video, progress }) {
   return (
-    <View className="flex flex-1 items-center justify-center z-10">
+    <View style={styles.container}>
       {Platform.OS === "ios" && (
-        <BlurView intensity={100} tint="dark" className="absolute inset-0" />
+        <BlurView intensity={100} tint="dark" style={StyleSheet.absoluteFillObject} />
       )}
 
-      <BlurView intensity={100} tint="dark" className="w-4/5 rounded-lg bg-white p-5 space-y-4">
-        <View className="items-center">
-          {image && (
-            <Image
-              source={{ uri: image }}
-              className="w-24 h-24 resizeMode-contain rounded"
-            />
-          )}
-          {video && (
-            <Video
-              source={{
-                uri: video,
-              }}
-              rate={1.0}
-              volume={1.0}
-              isMuted={false}
-              resizeMode="contain"
-              className="w-48 h-48"
-            />
-          )}
-          <Text className="text-xs">Uploading...</Text>
-          <ProgressBar progress={progress} />
-          <View className="border-t border-gray-300 w-full" />
-          <TouchableOpacity>
-            <Text className="font-medium text-blue-500 text-base">Cancel</Text>
-          </TouchableOpacity>
-        </View>
+      <BlurView intensity={100} tint="dark" style={styles.uploadContainer}>
+        {video && (
+          <Video
+            source={{
+              uri: video,
+            }}
+            rate={1.0}
+            volume={1.0}
+            isMuted={false}
+            resizeMode="contain"
+            style={styles.video}
+          />
+        )}
+        <Image
+          source={{ uri: 'https://res.cloudinary.com/dqhyudo4x/image/upload/v1690787051/Portfolio/spinning_cat.aa434bc8_dgjck8.gif' }} // Replace with your image URI
+          style={styles.image}
+        />
+        <Text style={styles.uploadText}>Uploading...</Text>
+        <ProgressBar progress={progress} />
+        <View style={styles.separator} />
+        <TouchableOpacity>
+          <Text style={styles.cancelButton}>Cancel</Text>
+        </TouchableOpacity>
       </BlurView>
-
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 10,
+  },
+  uploadContainer: {
+    width: '80%',
+    borderRadius: 10,
+    backgroundColor: 'white',
+    padding: 20,
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  video: {
+    width: 200,
+    height: 200,
+  },
+  image: {
+    width: 150,
+    height: 150,
+    borderRadius: 75,
+    marginBottom: 10,
+  },
+  uploadText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  separator: {
+    borderTopWidth: 1,
+    borderTopColor: 'gray',
+    width: '100%',
+    marginVertical: 10,
+  },
+  cancelButton: {
+    fontWeight: '500',
+    color: 'blue',
+    fontSize: 18,
+  },
+});
 
 export default Uploading;
