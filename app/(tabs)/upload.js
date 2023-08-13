@@ -9,6 +9,7 @@ import Uploading from "../../components/uploading";
 import ProgressBar from "../../components/progressBar";
 import { useRecoilValue } from "recoil";
 import { uidAtom } from "../../context/Atom";
+import * as FileSystem from 'expo-file-system';
 
 export default function Upload() {
   const [video, setVideo] = useState("");
@@ -30,19 +31,31 @@ export default function Upload() {
 
     if (!result.canceled) {
       console.log(result)
-      setVideo(result.assets[0].uri);
-      const videoSize = result.assets[0].fileSize;
+      const videoUri = result.assets[0].uri;
+      setVideo(videoUri);
+      await uploadVideo(videoUri, "video");
+      // setVideo(result.assets[0].uri);
+      // const videoSize =  await checkFileSize(result.assets[0].uri);;
 
-      if (videoSize <= 1024 * 1024 ) {
-        setVideo(videoUri);
-        setErrorMessage(""); // Clear any previous error message
-        await uploadVideo(videoUri, "video");
-      } else {
-        setErrorMessage("The selected video is larger than 1MB.");
-      }
+      // if (videoSize <= 1024 * 1024 ) {
+      //   setVideo(videoUri);
+      //   setErrorMessage(""); // Clear any previous error message
+      //   await uploadVideo(videoUri, "video");
+      // } else {
+      //   setErrorMessage("The selected video is larger than 1MB.");
+      // }
     }
   }
 
+  async function checkFileSize(fileURI) {
+    try {
+      const fileInfo = await FileSystem.getInfoAsync(fileURI);
+      return fileInfo;
+    } catch (error) {
+      console.error("Error getting file info:", error);
+      return null;
+    }
+  }
   async function uploadVideo(uri, fileType) {
     const response = await fetch(uri);
     const blob = await response.blob();
@@ -100,6 +113,7 @@ export default function Upload() {
       {errorMessage ? <Text style={{ color: "red" }}>{errorMessage}</Text> : null}
 
       <ProgressBar progress={progress} />
+      <Uploading image={''} video={video} progress={progress} />
       <TextInput
         placeholder="Title"
         value={title}
