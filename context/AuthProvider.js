@@ -46,6 +46,7 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     // Initialize Firebase app
+    
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(); // Get the auth instance
 
