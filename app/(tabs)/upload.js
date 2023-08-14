@@ -8,7 +8,7 @@ import { Video } from "expo-av";
 import Uploading from "../../components/uploading";
 import ProgressBar from "../../components/progressBar";
 import { useRecoilValue } from "recoil";
-import { uidAtom } from "../../context/Atom";
+import { uidAtom,userAtom } from "../../context/Atom";
 import * as FileSystem from 'expo-file-system';
 
 export default function Upload() {
@@ -20,12 +20,14 @@ export default function Upload() {
   const storage = getStorage();
   const db = getFirestore();
   const uid = useRecoilValue(uidAtom);
+  const user=useRecoilValue(userAtom);
 
   async function pickVideo() {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Videos,
       allowsEditing: true,
-      
+      aspects: [4, 3],
+      // videoQuality
       quality: 1,
     });
 
@@ -94,6 +96,7 @@ export default function Upload() {
         videoUrl: url,
         createdAt,
         createdBy :uid,
+        createrName:user.name
       });
 
       // Update user's document with the reference to the created short

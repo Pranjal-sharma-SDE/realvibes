@@ -65,7 +65,7 @@ export default function TabsLayout() {
         name="profile"
         options={{
           title: "",
-          headerShown: true,
+          headerShown: false,
           href: {
             pathname: "/profile",
           },
@@ -90,7 +90,7 @@ export default function TabsLayout() {
         name="upload"
         options={{
           title: "",
-          headerShown: true,
+          headerShown: false,
           href: {
             pathname: "/upload",
           },

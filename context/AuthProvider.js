@@ -3,16 +3,17 @@ import { useSegments, useRouter } from "expo-router";
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from "firebase/auth"; // Import Firebase authentication module
 import { useRecoilState } from "recoil";
-import { uidAtom } from "./Atom";
+import { uidAtom,userAtom } from "./Atom";
+import { doc, getDoc, getFirestore } from 'firebase/firestore'; 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBZFYMt5IugiXSqn_K4iS_yc6Z6GSaZ8lE",
-    authDomain: "reelvibes-3f2b7.firebaseapp.com",
-    projectId: "reelvibes-3f2b7",
-    storageBucket: "reelvibes-3f2b7.appspot.com",
-    messagingSenderId: "22972405767",
-    appId: "1:22972405767:web:131222dac2fc326ce772a2",
-    measurementId: "G-MN85B8QRSF"
+  apiKey: "AIzaSyA4kgnfJVF2KcCPkIulI0SwCkZer1p-vas",
+  authDomain: "realvibes-1e9ee.firebaseapp.com",
+  projectId: "realvibes-1e9ee",
+  storageBucket: "realvibes-1e9ee.appspot.com",
+  messagingSenderId: "289022307786",
+  appId: "1:289022307786:web:ad40f98017679998cbb333",
+  measurementId: "G-ZX248SR7QE"
 };
 
 const AuthContext = createContext({
@@ -42,7 +43,23 @@ function useProtectedRoute(user) {
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
+  const [userProfile, setUserProfile] = useRecoilState(userAtom);
   const [uAtom,setUAtom]=useRecoilState(uidAtom);
+  const fetchUserDetails = async (uid) => {
+    const firestore=getFirestore();
+    const userDocRef = doc(firestore, 'users', uid);
+    
+    try {
+      const userDocSnap = await getDoc(userDocRef);
+      if (userDocSnap.exists()) {
+        const userData = userDocSnap.data();
+        setUser(userData);
+        console.log(userData);
+      }
+    } catch (error) {
+      console.error('Error fetching user details:', error);
+    }
+  };
 
   useEffect(() => {
     // Initialize Firebase app
@@ -58,6 +75,8 @@ export function AuthProvider({ children }) {
       setUAtom( newUser.uid )
       setUser(newUser); // Update the user state when the authentication state changes
       console.log(uAtom)
+      fetchUserDetails(newUser.uid);
+      
         }
         else{
           setUser(null); // Update the user context
