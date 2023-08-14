@@ -4,28 +4,41 @@
     "slug": "realvibes",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/taza.png",
+    "icon": "./assets/Taza.png",
     "scheme": "real-vibe",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splashscreen.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#CB3A2B"
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "Allow $(PRODUCT_NAME) to access your photos.",
+        "NSPhotoLibraryAddUsageDescription": "Allow $(PRODUCT_NAME) to save photos."
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/taza.png",
+        "foregroundImage": "./assets/Taza.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.ACCESS_MEDIA_LOCATION",
+        "android.permission.MODIFY_AUDIO_SETTINGS"
+      ],
+      "package": "com.pranjalsharma.realvibes"
     },
     "web": {
-      "favicon": "./assets/taza.png",
+      "favicon": "./assets/Taza.png",
       "bundler": "metro"
     },
     "plugins": [
@@ -56,6 +69,14 @@
           "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone."
         }
       ]
-    ]
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "fc55774a-ee30-45c9-9244-65b2a5f5323e"
+      }
+    }
   }
 }

@@ -52,8 +52,8 @@ const PostSingle = forwardRef(({ item }, parentRef) => {
           resizeMode={ResizeMode.COVER}
           shouldPlay={false}
           isLooping
-          source={{ uri: 'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4' }}
-        //   source={{ uri: item.videoUrl }}
+          // source={{ uri: 'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4' }}
+          source={{ uri: item.videoUrl }}
         />
         {!isPlaying && (
           <View style={styles.playButton}>

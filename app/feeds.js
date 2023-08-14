@@ -5,6 +5,8 @@ import SingleFeed from '../components/SingleFeed';
 
 export default function Feeds() {
   const [videos, setVideos] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const videosPerPage = 5;
   const db = getFirestore();
   const mediaRefs = useRef({});
 
@@ -29,17 +31,35 @@ export default function Feeds() {
     try {
       Object.keys(mediaRefs.current).forEach(key => {
         if (!viewableItems.some(item => item.key === key)) {
-          if (mediaRefs.current[key]) { // Check if the reference is valid before calling methods
+          if (mediaRefs.current[key]) {
             mediaRefs.current[key].stop();
           }
         }
       });
   
       viewableItems.forEach(item => {
-        if (mediaRefs.current[item.key]) { // Check if the reference is valid before calling methods
+        if (mediaRefs.current[item.key]) {
           mediaRefs.current[item.key].play();
         }
       });
+
+      const lastVisibleItem = viewableItems[viewableItems.length - 1];
+      const lastVisibleIndex = videos.findIndex(
+        video => video.key === lastVisibleItem.key
+      );
+
+      if (lastVisibleIndex === videos.length - 1) {
+        // Load next page of videos
+        const nextPage = currentPage + 1;
+        const startIndex = nextPage * videosPerPage;
+        const endIndex = startIndex + videosPerPage;
+        const nextVideos = videos.slice(startIndex, endIndex);
+        
+        if (nextVideos.length > 0) {
+          setVideos(prevVideos => [...prevVideos, ...nextVideos]);
+          setCurrentPage(nextPage);
+        }
+      }
     } catch (error) {
       console.error("Error handling viewable items:", error);
     }
@@ -55,7 +75,7 @@ export default function Feeds() {
       windowSize={10}
       keyExtractor={(item) => item.videoUrl}
       renderItem={renderItem}
-      initialNumToRender={2}
+      initialNumToRender={videosPerPage}
       onViewableItemsChanged={onViewableItemsChanged.current}
     />
   );
