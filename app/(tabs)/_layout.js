@@ -3,28 +3,26 @@ import { BottomTabBar } from "@react-navigation/bottom-tabs";
 import { BlurView } from "expo-blur";
 import { Tabs } from "expo-router";
 import React from "react";
-import { Platform, View, Text } from "react-native";
+import { Platform, View, Text, StyleSheet } from "react-native";
 
-function TabBarIcon(props) {
-  return (
-    <FontAwesome
-      size={props.size || 26}
-      style={{ marginBottom: -3 }}
-      {...props}
-    />
-  );
-}
+// Define your tab icons
+const TabIcons = {
+  home: "home", // Change to your preferred home icon
+  profile: "user", // Change to your preferred profile icon
+  upload: "upload", // Change to your preferred upload icon
+};
 
 export default function TabsLayout() {
   return (
     <Tabs
       initialRouteName="home"
       screenOptions={{
-        tabBarStyle:
-          Platform.OS === "ios" && {
-            backgroundColor: "transparent",
-          },
+        tabBarStyle: Platform.OS === "ios" && {
+          backgroundColor: "transparent",
+        },
         headerShown: false,
+       tabBarShowLabel: false,
+        tabBarActiveTintColor: "#FF0066", // Set the active color
       }}
       tabBar={(props) =>
         Platform.OS === "ios" ? (
@@ -39,28 +37,19 @@ export default function TabsLayout() {
         )
       }
     >
+      {/* Home Tab */}
       <Tabs.Screen
         name="home"
         options={{
           href: "/home",
           title: "",
           tabBarIcon: ({ color }) => (
-            <View
-              style={{
-                flexDirection: "column",
-                alignItems: "center",
-                marginTop: 17,
-                backgroundColor: "transparent",
-              }}
-            >
-              <TabBarIcon name="home" color={color} size={24} />
-              <Text style={{ marginTop: 5, fontSize: 10, opacity: 0.5 }}>
-                Home
-              </Text>
-            </View>
+            <TabIcon name={TabIcons.home} color={color} />
           ),
         }}
       />
+
+      {/* Profile Tab */}
       <Tabs.Screen
         name="profile"
         options={{
@@ -70,23 +59,13 @@ export default function TabsLayout() {
             pathname: "/profile",
           },
           tabBarIcon: ({ color }) => (
-            <View
-              style={{
-                flexDirection: "column",
-                alignItems: "center",
-                marginTop: 17,
-                backgroundColor: "transparent",
-              }}
-            >
-              <TabBarIcon name="user" color={color} size={24} />
-              <Text style={{ marginTop: 5, fontSize: 10, opacity: 0.5 }}>
-                Account
-              </Text>
-            </View>
+            <TabIcon name={TabIcons.profile} color={color} />
           ),
         }}
       />
-       <Tabs.Screen
+
+      {/* Upload Tab */}
+      <Tabs.Screen
         name="upload"
         options={{
           title: "",
@@ -95,22 +74,35 @@ export default function TabsLayout() {
             pathname: "/upload",
           },
           tabBarIcon: ({ color }) => (
-            <View
-              style={{
-                flexDirection: "column",
-                alignItems: "center",
-                marginTop: 17,
-                backgroundColor: "transparent",
-              }}
-            >
-              <TabBarIcon name="upload" color={color} size={24} />
-              <Text style={{ marginTop: 5, fontSize: 10, opacity: 0.5 }}>
-                Account
-              </Text>
-            </View>
+            <TabIcon name={TabIcons.upload} color={color} />
           ),
         }}
       />
     </Tabs>
   );
 }
+
+const TabIcon = ({ name, color }) => (
+  <View style={styles.tabIconContainer}>
+    <FontAwesome name={name} color={color} size={24} />
+    <Text style={styles.tabIconText}>{capitalizeFirstLetter(name)}</Text>
+  </View>
+);
+
+const capitalizeFirstLetter = (text) => {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+};
+
+const styles = StyleSheet.create({
+  tabIconContainer: {
+    flexDirection: "column",
+    alignItems: "center",
+    marginTop: 10, // Adjust as needed
+    backgroundColor: "transparent",
+  },
+  tabIconText: {
+    marginTop: 5,
+    fontSize: 10,
+    opacity: 0.5,
+  },
+});

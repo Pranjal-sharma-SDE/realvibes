@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { View, TouchableOpacity, Image, FlatList, Platform,TextInput,Text } from "react-native";
+import { View, TouchableOpacity, Image, FlatList, Platform,TextInput,Text,StyleSheet,Alert, ImageBackground } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 import { ref, uploadBytesResumable, getDownloadURL, getStorage } from "firebase/storage";
@@ -27,15 +27,20 @@ export default function Upload() {
       mediaTypes: ImagePicker.MediaTypeOptions.Videos,
       allowsEditing: true,
       aspects: [4, 3],
-      // videoQuality
       quality: 1,
     });
-
+  
     if (!result.canceled) {
-      console.log(result)
       const videoUri = result.assets[0].uri;
-      setVideo(videoUri);
-      await uploadVideo(videoUri, "video");
+      if (title.trim() === "" || description.trim() === "") {
+        // Show an alert if either title or description is empty
+        Alert.alert("Missing Information", "Video title and description are required.");
+      } else {
+        setErrorMessage(""); // Clear any previous error message
+        setVideo(videoUri);
+        await uploadVideo(videoUri, "video");
+      }
+    
       // setVideo(result.assets[0].uri);
       // const videoSize =  await checkFileSize(result.assets[0].uri);;
 
@@ -107,35 +112,102 @@ export default function Upload() {
 
       console.log("Document saved correctly in 'shorts' collection with ID:", docRef.id);
       setVideo("")
+      setTitle("");
+      setDescription("");
     } catch (e) {
       console.error("An error occurred while saving record:", e);
     }
   }
 
   return (
-    <View className="flex-1 justify-center items-center">
-      {errorMessage ? <Text style={{ color: "red" }}>{errorMessage}</Text> : null}
+    <ImageBackground source={{uri:"https://res.cloudinary.com/dqhyudo4x/image/upload/v1690787113/Portfolio/vision.b5972a79_su8nf2.webp"}} style={styles.backgroundImage}>
+    <View style={styles.container}>
+      <Text style={styles.headerText}>Upload Your Video</Text>
+      {errorMessage ? <Text style={styles.errorMessage}>{errorMessage}</Text> : null}
 
-      {/* <ProgressBar progress={progress} /> */}
-      {video &&( <Uploading  video={video} progress={progress} />) }
+      {video && <Uploading video={video} progress={progress} />}
+
+      <View style={styles.inputContainer}>
+        
       <TextInput
-        placeholder="Title"
-        value={title}
-        onChangeText={setTitle}
-        // ...other TextInput props
-      />
-      <TextInput
-        placeholder="Description"
-        value={description}
-        onChangeText={setDescription}
-        // ...other TextInput props
-      />
-      <TouchableOpacity
-        onPress={pickVideo}
-        className="absolute bottom-12 right-6 w-11 h-11 bg-black flex items-center justify-center rounded-full"
-      >
-        <Ionicons name="videocam" size={24} color="white" />
+          placeholder="Title"
+          value={title}
+          onChangeText={setTitle}
+          style={styles.input}
+        />
+        <TextInput
+          placeholder="Description"
+          value={description}
+          onChangeText={setDescription}
+          style={styles.input}
+          multiline
+        />
+
+      </View>
+
+      <TouchableOpacity onPress={pickVideo} style={styles.uploadButton}>
+        <Ionicons name="videocam" size={30} color="white" />
+        <Text style={styles.uploadButtonText}>Pick Video</Text>
       </TouchableOpacity>
     </View>
+  </ImageBackground>
   );
 }
+
+
+const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  container: {
+    paddingHorizontal: 20,
+    backgroundColor: "rgba(0, 0, 0, 0.5)", // Adjust background overlay color
+    width: "100%",
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  headerText: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 20,
+    color: "white",
+  },
+  errorMessage: {
+    color: "red",
+    marginBottom: 10,
+  },
+  inputContainer: {
+    width: "100%",
+    marginBottom: 20,
+    color: "white",
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 8,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    marginBottom: 15,
+    color: "white",
+  },
+  uploadButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#FF0066",
+    paddingHorizontal: 20,
+    paddingVertical: 12,
+    borderRadius: 10,
+  },
+  uploadButtonText: {
+    color: "white",
+    marginLeft: 10,
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  
+});
