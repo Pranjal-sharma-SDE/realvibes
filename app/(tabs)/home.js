@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, ImageBackground, StyleSheet } from "react-native";
 import { Link } from "expo-router";
+import Staus from "../../components/statusbar";
 
 export default function Home() {
   
@@ -12,6 +13,7 @@ export default function Home() {
       source={{uri:'https://res.cloudinary.com/dqhyudo4x/image/upload/v1690786098/Portfolio/developers2.6f599dd2_ek6emf.webp'}} // Use your background image here
       style={styles.container}
     >
+      <Staus/>
       <View style={styles.contentContainer}>
         <Text style={styles.heading}>Welcome to Your Realvibes !!</Text>
         <Link href={"/feeds"} style={styles.button} >
