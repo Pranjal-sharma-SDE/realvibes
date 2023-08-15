@@ -35,7 +35,7 @@
         "android.permission.ACCESS_MEDIA_LOCATION",
         "android.permission.MODIFY_AUDIO_SETTINGS"
       ],
-      "package": "com.pranjalsharma.realvibes"
+      "package": "com.realvibes.realvibes"
     },
     "web": {
       "favicon": "./assets/Taza.png",
@@ -43,12 +43,7 @@
     },
     "plugins": [
       "expo-router",
-      [
-        "expo-camera",
-        {
-          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera."
-        }
-      ],
+    
       [
         "expo-image-picker",
         {
@@ -77,6 +72,12 @@
       "eas": {
         "projectId": "fc55774a-ee30-45c9-9244-65b2a5f5323e"
       }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/fc55774a-ee30-45c9-9244-65b2a5f5323e"
     }
   }
 }

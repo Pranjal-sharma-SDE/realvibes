@@ -1,7 +1,7 @@
 import { FontAwesome } from "@expo/vector-icons";
-import { BottomTabBar } from "@react-navigation/bottom-tabs";
+// import { BottomTabBar } from "@react-navigation/bottom-tabs";
 import { BlurView } from "expo-blur";
-import { Tabs } from "expo-router";
+import { Tabs } from 'expo-router/tabs';
 import React from "react";
 import { Platform, View, Text, StyleSheet } from "react-native";
 
@@ -24,18 +24,18 @@ export default function TabsLayout() {
        tabBarShowLabel: false,
         tabBarActiveTintColor: "#FF0066", // Set the active color
       }}
-      tabBar={(props) =>
-        Platform.OS === "ios" ? (
-          <BlurView
-            style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}
-            intensity={95}
-          >
-            <BottomTabBar {...props} />
-          </BlurView>
-        ) : (
-          <BottomTabBar {...props} />
-        )
-      }
+      // tabBar={(props) =>
+      //   Platform.OS === "ios" ? (
+      //     <BlurView
+      //       style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}
+      //       intensity={95}
+      //     >
+      //       <BottomTabBar {...props} />
+      //     </BlurView>
+      //   ) : (
+      //     <BottomTabBar {...props} />
+      //   )
+      // }
     >
       {/* Home Tab */}
       <Tabs.Screen

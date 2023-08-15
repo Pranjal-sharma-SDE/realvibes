@@ -1,7 +1,7 @@
 {
   "name": "realvibes",
   "version": "1.0.0",
-  "main": "expo-router/entry",
+  "main": "index.js",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -9,24 +9,25 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "@react-navigation/bottom-tabs": "^6.5.8",
+    "@react-native-async-storage/async-storage": "1.18.2",
     "@react-navigation/core": "^6.4.9",
     "expo": "~49.0.7",
     "expo-av": "~13.4.1",
     "expo-blur": "~12.4.1",
-    "expo-camera": "~13.4.2",
     "expo-constants": "~14.4.2",
+    "expo-dev-client": "~2.4.6",
+    "expo-file-system": "~15.4.3",
     "expo-image-picker": "~14.3.2",
     "expo-linear-gradient": "~12.3.0",
     "expo-linking": "~5.0.2",
     "expo-media-library": "~15.4.1",
     "expo-router": "2.0.0",
     "expo-status-bar": "~1.6.0",
+    "expo-updates": "~0.18.11",
     "expo-video-thumbnails": "~7.4.0",
     "firebase": "^10.1.0",
     "install": "^0.13.0",
     "nativewind": "^2.0.11",
-    "npm": "^9.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.72.3",
@@ -36,9 +37,7 @@
     "react-native-svg": "13.9.0",
     "react-native-web": "~0.19.6",
     "recoil": "^0.7.7",
-    "whatwg-fetch": "^3.6.2",
-    "expo-file-system": "~15.4.3",
-    "expo-sharing": "~11.5.0"
+    "whatwg-fetch": "^3.6.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
