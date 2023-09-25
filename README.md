@@ -7,6 +7,10 @@ RealVibe is a React Native app developed using Expo and Firebase backend that al
 <!-- Center-align the logo -->
 <p align="center">
   <img src="https://res.cloudinary.com/dqhyudo4x/image/upload/c_scale,w_300/v1695620272/Taza_tiw0qz.png" alt="RealVibe Logo" width="300" height-"300">
+
+https://github.com/Pranjal-sharma-SDE/realvibes/assets/101920516/6cc488ca-6f8a-438f-881d-a886f197fc2e
+
+
 </p>
 
 </div>
