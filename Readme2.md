@@ -6,7 +6,7 @@
 
 <!-- Center-align the logo -->
 <p align="center">
-  <img src="https://res.cloudinary.com/dqhyudo4x/image/upload/c_scale,w_300/v1695620272/Taza_tiw0qz.png" alt="RealVibe Logo" width="300">
+  <img src="https://res.cloudinary.com/dqhyudo4x/image/upload/c_scale,w_300/v1695620272/Taza_tiw0qz.png" alt="RealVibe Logo" width="300" height-"300">
 </p>
 
 </div>
