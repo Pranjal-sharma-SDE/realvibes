@@ -2,18 +2,17 @@
 <!-- Center-align all content -->
 <div align="center">
 
-<div style="display: flex; align-items: center; justify-content: center;">
-  <!-- Center-align the logo -->
-  <p align="center">
-    <img src="https://res.cloudinary.com/dqhyudo4x/image/upload/c_scale,w_300/v1695620272/Taza_tiw0qz.png" alt="RealVibe Logo">
-  </p>
-  
-  <div>
-    <h1>RealVibe - Reels App</h1>
+# RealVibe - Reels App
 
-    <p>RealVibe is a React Native app developed using Expo and Firebase backend that allows users to create, upload, and view short video reels. This README provides an overview of the app's features, installation instructions, and other relevant information.</p>
-  </div>
+<!-- Center-align the logo -->
+<p align="center">
+  <img src="https://res.cloudinary.com/dqhyudo4x/image/upload/c_scale,w_300/v1695620272/Taza_tiw0qz.png" alt="RealVibe Logo" width="300">
+</p>
+
 </div>
+
+RealVibe is a React Native app developed using Expo and Firebase backend that allows users to create, upload, and view short video reels. This README provides an overview of the app's features, installation instructions, and other relevant information.
+
 
 <!-- Center-align the video -->
 <div align="center">
