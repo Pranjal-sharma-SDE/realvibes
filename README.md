@@ -2,7 +2,7 @@
 <!-- Center-align all content -->
 <div align="center">
 
-# RealVibe - Reels App
+# RealVibe - Reels App build :heart: top. top, 🧡, :orange_heart: with by~Pranjal Sharma
 RealVibe is a React Native app developed using Expo and Firebase backend that allows users to create, upload, and view short video reels. This README provides an overview of the app's features, installation instructions, and other relevant information.
 <!-- Center-align the logo -->
 <p align="center">
