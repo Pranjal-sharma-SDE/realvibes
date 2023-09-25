@@ -14,7 +14,6 @@
 RealVibe is a React Native app developed using Expo and Firebase backend that allows users to create, upload, and view short video reels. This README provides an overview of the app's features, installation instructions, and other relevant information.
 
 
-<!-- Center-align the video -->
 <div align="center">
   <video controls width="300" height="auto">
     <source src="https://github.com/Pranjal-sharma-SDE/realvibes/assets/101920516/a1aa6063-66fc-4b81-9274-2a2e685d3dcb" type="video/mp4">
@@ -29,24 +28,24 @@ RealVibe is a React Native app developed using Expo and Firebase backend that al
    
    <!-- Center-align the authentication image -->
    <div align="center">
-     <img src="https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620233/Login_vugrk0.jpg" alt="RealVibe Auth">
+     <img src="https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620233/Login_vugrk0.jpg" alt="RealVibe Auth" width="300" height="600">
    </div>
 
 2. **Upload Reels**
    - Users can upload short video reels with a title, description, and the video in MP4 format.
 
    <!-- Center-align the upload images -->
-   <div align="center">
-     <img src="https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620234/upload-2_qhhcrw.jpg" alt="RealVibe Upload">
-     <img src="https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620234/Upload_gjhcea.jpg" alt="RealVibe Upload">
-   </div>
+  <div align="center" style="display: flex; justify-content: space-between;">
+  <img src="https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620234/upload-2_qhhcrw.jpg" alt="RealVibe Upload" width="300" height="600">
+  <img src="https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620234/Upload_gjhcea.jpg" alt="RealVibe Upload" width="300" height="600">
+</div>
 
 3. **View Reels**
    - Browse through an engaging collection of video reels uploaded by users.
 
    <!-- Center-align the view reels image -->
    <div align="center">
-     <img src="https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620233/Reel_qvcz7u.jpg" alt="RealVibe Reels">
+     <img src="https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620233/Reel_qvcz7u.jpg" alt="RealVibe Reels" width="300" height="600">
    </div>
 
 4. **Interaction**
@@ -91,7 +90,7 @@ RealVibe uses native wind and/or custom styling exclusively for its user interfa
 
 ## Release APK
 
-You can find the release APK for RealVibe in the [releases section](https://github.com/your-username/RealVibe/releases) of this repository.
+You can find the release APK for RealVibe in the [releases section](https://drive.google.com/file/d/1yIT4yMlB4RL5W4fIQs_JnCXM1ZuAcBUh/view?usp=sharing) of this repository.
 
 ## Expo and Expo Router
 
@@ -115,7 +114,7 @@ Thank you for choosing RealVibe! We hope you enjoy using the app and exploring i
 
 <!-- Center-align the final app screenshot -->
 <div align="center">
-  <img src="https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620233/Reel_qvcz7u.jpg" alt="App Screenshot">
+  <img src="https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620233/Reel_qvcz7u.jpg" alt="App Screenshot" width="300" height="600">
 </div>
 ```
 
