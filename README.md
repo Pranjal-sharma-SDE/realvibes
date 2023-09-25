@@ -1,7 +1,9 @@
 
 # RealVibe - Reels App
 
-![RealVibe Logo](https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620272/Taza_tiw0qz.png)
+<div style="text-align: center;">
+  <img src="https://res.cloudinary.com/dqhyudo4x/image/upload/c_scale,w_300/v1695620272/Taza_tiw0qz.png" alt="RealVibe Logo">
+</div>
 
 RealVibe is a React Native app developed using Expo and Firebase backend that allows users to create, upload, and view short video reels. This README provides an overview of the app's features, installation instructions, and other relevant information.
 
