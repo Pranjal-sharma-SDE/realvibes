@@ -63,7 +63,7 @@ To run RealVibe on your local machine, follow these steps:
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/your-username/RealVibe.git
+   git clone https://github.com/Pranjal-sharma-SDE/realvibes.git
    cd RealVibe
    ```
 
@@ -110,14 +110,16 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Thank you for choosing RealVibe! We hope you enjoy using the app and exploring its features. If you have any questions or encounter issues, please don't hesitate to [contact us](mailto:contact@realvibeapp.com). Happy Reeling! 🎬📲
+Thank you for choosing RealVibe! We hope you enjoy using the app and exploring its features. If you have any questions or encounter issues, please don't hesitate to [contact us](mailto:pranjal1476772@gmail.com). Happy Reeling! 🎬📲
 
 <!-- Center-align the final app screenshot -->
-<div align="center" style="display: flex; justify-content: space-between;">
-  <img src="https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620233/Home_v5cbkt.jpg" alt="RealVibe Upload" width="300" height="600">
-  <img src="https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620233/Login_vugrk0.jpg" alt="RealVibe Upload" width="300" height="600">
-  <img src="https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620234/User_gmqwwk.jpg" alt="RealVibe Upload" width="300" height="600">
-  <img src="https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620234/upload-2_qhhcrw.jpg" alt="RealVibe Upload" width="300" height="600">
+<div align="center">
+  <div style="display: flex; justify-content: space-between;">
+    <a href="#"><img src="https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620233/Home_v5cbkt.jpg" alt="Home" width="300" height="600"></a>
+    <a href="#"><img src="https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620233/Login_vugrk0.jpg" alt="Login" width="300" height="600"></a>
+    <a href="#"><img src="https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620234/User_gmqwwk.jpg" alt="User" width="300" height="600"></a>
+    <a href="#"><img src="https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620234/upload-2_qhhcrw.jpg" alt="Upload" width="300" height="600"></a>
+  </div>
 </div>
 ```
 
