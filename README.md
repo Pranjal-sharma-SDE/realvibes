@@ -15,7 +15,7 @@ RealVibe is a React Native app developed using Expo and Firebase backend that al
 
 
 <div align="center">
-  <video controls width="300" height="auto">
+  <video controls width="300" >
     <source src="https://github.com/Pranjal-sharma-SDE/realvibes/assets/101920516/a1aa6063-66fc-4b81-9274-2a2e685d3dcb" type="video/mp4">
     Your browser does not support the video tag.
   </video>
