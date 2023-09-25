@@ -113,8 +113,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Thank you for choosing RealVibe! We hope you enjoy using the app and exploring its features. If you have any questions or encounter issues, please don't hesitate to [contact us](mailto:contact@realvibeapp.com). Happy Reeling! 🎬📲
 
 <!-- Center-align the final app screenshot -->
-<div align="center">
-  <img src="https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620233/Reel_qvcz7u.jpg" alt="App Screenshot" width="300" height="600">
+<div align="center" style="display: flex; justify-content: space-between;">
+  <img src="https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620233/Home_v5cbkt.jpg" alt="RealVibe Upload" width="300" height="600">
+  <img src="https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620233/Login_vugrk0.jpg" alt="RealVibe Upload" width="300" height="600">
+  <img src="https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620234/User_gmqwwk.jpg" alt="RealVibe Upload" width="300" height="600">
+  <img src="https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620234/upload-2_qhhcrw.jpg" alt="RealVibe Upload" width="300" height="600">
 </div>
 ```
 
