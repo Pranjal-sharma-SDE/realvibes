@@ -1,24 +1,24 @@
 
 # RealVibe - Reels App
 
-![RealVibe Logo]([https://example.com/realvibe-logo.png](https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620272/Taza_tiw0qz.png))
+![RealVibe Logo](https://example.com/realvibe-logo.png](https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620272/Taza_tiw0qz.png))
 
 RealVibe is a React Native app developed using Expo and Firebase backend that allows users to create, upload, and view short video reels. This README provides an overview of the app's features, installation instructions, and other relevant information.
-![RealVibe Video ]([https://res.cloudinary.com/dqhyudo4x/video/upload/v1695619323/Android_Emulator_-_Pixel_XL_API_33_5554_2023-08-15_14-27-34_gw1fde.mp4))
+![RealVibe Video ](https://res.cloudinary.com/dqhyudo4x/video/upload/v1695619323/Android_Emulator_-_Pixel_XL_API_33_5554_2023-08-15_14-27-34_gw1fde.mp4))
 ## Features
 
 1. **Authentication**
    - Users can sign in using Google or their phone number for a seamless and secure experience.
-![RealVibe Auth ]([https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620233/Login_vugrk0.jpg))
+![RealVibe Auth ](https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620233/Login_vugrk0.jpg))
 
 2. **Upload Reels**
    - Users can upload short video reels with a title, description, and the video in MP4 format.
-![RealVibe Upload ]([https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620234/upload-2_qhhcrw.jpg))
-![RealVibe Upload ]([https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620234/Upload_gjhcea.jpg))
+![RealVibe Upload ](https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620234/upload-2_qhhcrw.jpg))
+![RealVibe Upload ](https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620234/Upload_gjhcea.jpg))
 
 3. **View Reels**
    - Browse through an engaging collection of video reels uploaded by users.
-![RealVibe Reels ]([https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620233/Reel_qvcz7u.jpg))
+![RealVibe Reels ](https://res.cloudinary.com/dqhyudo4x/image/upload/v1695620233/Reel_qvcz7u.jpg))
 
 4. **Interaction**
    - Like, comment, and share reels with friends on WhatsApp to enhance the social experience.
